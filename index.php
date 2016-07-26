@@ -9,15 +9,13 @@ $user = 'upperl_vadik'; // имя пользователя
 $password = '2shmpzez'; // пароль
 $link = mysqli_connect($host, $user, $password,$database )
     or die('Не удалось соединиться: ' . mysql_error());
-echo 'Соединение успешно установлено';
+//echo 'Соединение успешно установлено';
 
 // Выполняем SQL-запрос
 $query = 'SELECT * FROM menu';
 $result = $link->query($query) or die('Запрос не удался: ' . mysql_error());
-print_r($result);
-
-// Освобождаем память от результата
-mysql_free_result($result);
-
+//print_r($result);
+$rows = $result->mysqli_fetch_assoc();
+print_r($row);
 // Закрываем соединение
 mysql_close($link);
