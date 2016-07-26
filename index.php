@@ -18,4 +18,4 @@ $result = $link->query($query) or die('Запрос не удался: ' . mysql
 $rows = $result->fetch_assoc();
 print_r($row);
 // Закрываем соединение
-mysqli->close($link);
+//mysqli_close($link);
