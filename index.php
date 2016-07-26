@@ -16,6 +16,6 @@ $query = 'SELECT * FROM menu';
 $result = $link->query($query) or die('Запрос не удался: ' . mysql_error());
 //print_r($result);
 $rows = $result->fetch_assoc();
-print_r($row);
+print_r($rows);
 // Закрываем соединение
-//mysqli_close($link);
+$link->close();
