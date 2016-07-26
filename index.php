@@ -1,4 +1,8 @@
 <?php
+ini_set('error_reporting', E_ALL);
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+
  $host = 'upperl.mysql.ukraine.com.ua'; // адрес сервера 
 $database = 'upperl_vadik'; // имя базы данных
 $user = 'upperl_vadik'; // имя пользователя
