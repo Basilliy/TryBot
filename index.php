@@ -14,7 +14,7 @@ mysql_select_db($database) or die('Не удалось выбрать базу �
 
 // Выполняем SQL-запрос
 $query = 'SELECT * FROM menu';
-$result = mysql_query($query) or die('Запрос не удался: ' . mysql_error());
+$result = mysql_query($query, $database) or die('Запрос не удался: ' . mysql_error());
 print_r($result);
 
 // Освобождаем память от результата
