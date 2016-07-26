@@ -13,7 +13,7 @@ echo 'Соединение успешно установлено';
 
 // Выполняем SQL-запрос
 $query = 'SELECT * FROM menu';
-$result = mysqli_query($query) or die('Запрос не удался: ' . mysql_error());
+$result = $link->query($query) or die('Запрос не удался: ' . mysql_error());
 print_r($result);
 
 // Освобождаем память от результата
