@@ -15,7 +15,7 @@ $link = mysqli_connect($host, $user, $password,$database )
 $query = 'SELECT * FROM menu';
 $result = $link->query($query) or die('Запрос не удался: ' . mysql_error());
 //print_r($result);
-$rows = $result->mysqli_fetch_assoc();
+$rows = $result->fetch_assoc();
 print_r($row);
 // Закрываем соединение
 mysql_close($link);
