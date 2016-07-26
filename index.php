@@ -1,13 +1,30 @@
 <?php
-$access_token = '246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA';
-$url = 'https://api.telegram.org/bot' . $access_token;
+ $host = 'upperl.mysql.ukraine.com.ua'; // адрес сервера 
+$database = 'upperl_vadik'; // имя базы данных
+$user = 'upperl_vadik'; // имя пользователя
+$password = '2shmpzez'; // пароль
+$link = mysql_connect($host, $user, $password )
+    or die('Не удалось соединиться: ' . mysql_error());
+echo 'Соединение успешно установлено';
+mysql_select_db($database) or die('Не удалось выбрать базу данных');
 
-$output = json_decode(file_get_contents('php://input'), true);
-$chat_id = $output['message']['chat']['id'];
-$first_name = $output['message']['chat']['first_name'];
-$message = $output['message']['text'];
-print_r('out=',serialize($output));
+// Выполняем SQL-запрос
+$query = 'SELECT * FROM menu';
+$result = mysql_query($query) or die('Запрос не удался: ' . mysql_error());
 
-$fuck = file_get_contents('https://evilinsult.com/generate_insult.php?lang=en');
-//echo $update;
-$update = file_get_contents($url."/sendmessage?chat_id=".$chat_id."&text=$fuck");
+// Выводим результаты в html
+echo "<table>\n";
+while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
+    echo "\t<tr>\n";
+    foreach ($line as $col_value) {
+        echo "\t\t<td>$col_value</td>\n";
+    }
+    echo "\t</tr>\n";
+}
+echo "</table>\n";
+
+// Освобождаем память от результата
+mysql_free_result($result);
+
+// Закрываем соединение
+mysql_close($link);
