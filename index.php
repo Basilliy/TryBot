@@ -172,14 +172,14 @@ $query = 'SELECT * FROM menu';
 $result = $link->query($query) or die('Запрос не удался: ' . mysql_error());
 //print_r($result);
 $rows = $result->fetch_assoc();
-print_r($rows['ButtonsName']);
+//print_r($rows['ButtonsName']);
 //$mystring = 'Generate Insult,Language,Homepage';
 $findme   = ',';
 $buttons = explode($findme, $rows['ButtonsName']);
 
 for($i = 0; $i < count($buttons); $i++){
     echo '<br>';
-    print_r($buttons["$i"]);
+   // print_r($buttons["$i"]);
     
 }
 // Закрываем соединение
