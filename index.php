@@ -143,6 +143,31 @@ function checkLanguage($mass,$chat_id){
     genegateInsult($chat_id,$language);
 }
 function printKeybord(){
+    
+$host = 'upperl.mysql.ukraine.com.ua'; // адрес сервера 
+$database = 'upperl_vadik'; // имя базы данных
+$user = 'upperl_vadik'; // имя пользователя
+$password = '2shmpzez'; // пароль
+$link = mysqli_connect($host, $user, $password,$database)
+    or die('Не удалось соединиться: ' . mysql_error());
+//echo 'Соединение успешно установлено';
+// Выполняем SQL-запрос
+$query = 'SELECT * FROM menu';
+$result = $link->query($query) or die('Запрос не удался: ' . mysql_error());
+//print_r($result);
+$rows = $result->fetch_assoc();
+//print_r($rows['ButtonsName']);
+//$mystring = 'Generate Insult,Language,Homepage';
+$findme   = ',';
+$buttons = explode($findme, $rows['ButtonsName']);
+for($i = 0; $i < count($buttons); $i++){
+    echo '<br>';
+   // print_r($buttons["$i"]);
+    
+}
+// Закрываем соединение
+$link->close();
+
         $reply_markup = '';
     $buttons = [['Generate Insult'],['Language','Homepage']];
     $keyboard = json_encode($keyboard = [
