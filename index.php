@@ -2,29 +2,21 @@
 /**
  * Telegram Bot access token и URL.
  */
-$access_token = '246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA';
+$access_token = '188192901:AAF2mNLz0rCxe0z_HIc_OhamGo_HIilPEQA';
 $url = 'https://api.telegram.org/bot' . $access_token;
 $output = json_decode(file_get_contents('php://input'), true);
 $chat_id = $output['message']['chat']['id'];
 $message = $output['message']['text'];
 $fp = json_decode(file_get_contents('user.json'), true);
-
-//$botanToken = 'ue7xV8Wl5Q2QgHD7yGWfPApy_WBC1Hp8';
-//file_get_contents("https://api.botan.io/track?token=".$botanToken."&uid=".$chat_id."&name=search");
-//file_get_contents("https://api.botan.io/track?token=".$botanToken."&uid=".$chat_id."&name=search%20californication");
-
-
+$botanToken = 'ue7xV8Wl5Q2QgHD7yGWfPApy_WBC1Hp8';
+file_get_contents("https://api.botan.io/track?token=".$botanToken."&uid=".$chat_id."&name=search");
+file_get_contents("https://api.botan.io/track?token=".$botanToken."&uid=".$chat_id."&name=search%20californication");
 function _incomingMessage($output) {
     $messageData = $output['message'];
-
     $botan = new Botan($this->access_token);
     $botan->track($messageData, 'Start');
 }
-
 if(isset($output['callback_query']['data'])){
-
-
-
 if (checkUser($fp, $output['callback_query']['message']['chat']['id']) != false) {
             foreach ( $fp as $key=> $value) {
               if($key==$output['callback_query']['message']['chat']['id']){
@@ -37,16 +29,13 @@ if (checkUser($fp, $output['callback_query']['message']['chat']['id']) != false)
           else{
            AddUserLanguage($output['callback_query']['message']['chat']['id'],$fp,$output['callback_query']['data']);
           }
-
-file_get_contents("https://api.telegram.org/bot246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA/sendMessage?chat_id=".$output['callback_query']['message']['chat']['id']."&text=Language successfully changed to: ".($output['callback_query']['data'])."&parse_mode=HTML");//exit();
+file_get_contents("https://api.telegram.org/bot188192901:AAF2mNLz0rCxe0z_HIc_OhamGo_HIilPEQA/sendMessage?chat_id=".$output['callback_query']['message']['chat']['id']."&text=Language successfully changed to: ".($output['callback_query']['data'])."&parse_mode=HTML");//exit();
 exit();
             
 }
-
 $emoji = array(
   'preload' => json_decode('"\ud83d\udc79"')
 );
-
 switch ($message) {
     case '/start':
         $message = 'Welcome To The Evil Insult Generator Telegram Bot!'. $emoji['preload'] ;
@@ -81,7 +70,6 @@ switch ($message) {
     default:
        checkLanguage($fp, $chat_id);
 }
-
 function FuckYou($chat_id){
     $number = rand(1, 4);
     switch($number){
@@ -104,13 +92,12 @@ function FuckYou($chat_id){
     }
     
 }
-
 function genegateInsult($chat_id,$lang){
     $fuck = file_get_contents("https://evilinsult.com/generate_insult.php?lang=".$lang);
     sendMessage($chat_id, $fuck);
 }
 function sendMessage($chat_id, $message) {
-    file_get_contents("https://api.telegram.org/bot246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA/sendMessage?chat_id=".$chat_id."&text=".$message.printKeybord()."&parse_mode=HTML");
+    file_get_contents("https://api.telegram.org/bot188192901:AAF2mNLz0rCxe0z_HIc_OhamGo_HIilPEQA/sendMessage?chat_id=".$chat_id."&text=".$message.printKeybord()."&parse_mode=HTML");
 }
 function checkUser($mass,$chat_id){
     $is = false;
@@ -146,7 +133,6 @@ function secretKeyboard(){
     
     return $reply_markup;
 }
-
 function checkLanguage($mass,$chat_id){
     $language = 'en';
     foreach ( $mass as $key=> $value) {
@@ -156,35 +142,9 @@ function checkLanguage($mass,$chat_id){
     }
     genegateInsult($chat_id,$language);
 }
-
-
-
 function printKeybord(){
-$host = 'upperl.mysql.ukraine.com.ua'; // адрес сервера 
-$database = 'upperl_vadik'; // имя базы данных
-$user = 'upperl_vadik'; // имя пользователя
-$password = '2shmpzez'; // пароль
-$link = mysqli_connect($host, $user, $password,$database )
-    or die('Не удалось соединиться: ' . mysql_error());
-//echo 'Соединение успешно установлено';
-// Выполняем SQL-запрос
-$query = 'SELECT * FROM menu';
-$result = $link->query($query) or die('Запрос не удался: ' . mysql_error());
-//print_r($result);
-$rows = $result->fetch_assoc();
-//print_r($rows['ButtonsName']);
-//$mystring = 'Generate Insult,Language,Homepage';
-$findme   = ',';
-$buttons = explode($findme, $rows['ButtonsName']);
-
-for($i = 0; $i < count($buttons); $i++){
-    echo '<br>';
-   // print_r($buttons["$i"]);
-    
-}
-// Закрываем соединение
-$link->close();
         $reply_markup = '';
+    $buttons = [['Generate Insult'],['Language','Homepage']];
     $keyboard = json_encode($keyboard = [
         'keyboard' => $buttons /*[$buttons]*/,
         'resize_keyboard' => true,
@@ -196,7 +156,6 @@ $link->close();
     
     return $reply_markup;
 }
-
 function inlineKeybord(){ //create a text description that will be passed to the server
 $reply_markup = '';
 $x1 = array('text'=>'en','callback_data'=>"en");
@@ -209,7 +168,6 @@ $x7 = array('text'=>'cn','callback_data'=>"cn");
 $x8 = array('text'=>'sw','callback_data'=>"sw");
 //You should create a new variable $xn(next6 number), and you should describe about it in the field "text" and add "callback_data", 
 //which will return to the server
-
 ///Displays only message
 $opz = [[$x1,$x2,$x3,$x4],[$x5,$x6,$x7,$x8]];
 $keyboard=array("inline_keyboard"=>$opz);
@@ -218,9 +176,8 @@ $keyboard = json_encode($keyboard,true);
     return $reply_markup;
 }
 function sendPhoto($chat_id, $photo){
-    file_get_contents("https://api.telegram.org/bot246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA/sendphoto?chat_id=".$chat_id."&photo=".$photo);
+    file_get_contents("https://api.telegram.org/bot188192901:AAF2mNLz0rCxe0z_HIc_OhamGo_HIilPEQA/sendphoto?chat_id=".$chat_id."&photo=".$photo);
 }
-
 function forURL(){
     $HTML='<a href="https://evilinsult.com/">http://evilinsult.com/</a>';
     return $HTML;
