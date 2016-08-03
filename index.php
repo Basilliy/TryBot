@@ -159,8 +159,8 @@ $rows = $result->fetch_assoc();
 //print_r($rows['ButtonsName']);
 //$mystring = 'Generate Insult,Language,Homepage';
 $findme   = ',';
-$buttons = explode($findme, $rows['ButtonsName']);
-for($i = 0; $i < count($buttons); $i++){
+$button = explode($findme, $rows['ButtonsName']);
+for($i = 0; $i < count($button); $i++){
     echo '<br>';
    // print_r($buttons["$i"]);
     
@@ -169,7 +169,7 @@ for($i = 0; $i < count($buttons); $i++){
 $link->close();
 
         $reply_markup = '';
-    $buttons = [['Generate Insult'],['Language','Homepage']];
+    $buttons = [[$button[0]],[[$button[1],[$button[2]]];
     $keyboard = json_encode($keyboard = [
         'keyboard' => $buttons /*[$buttons]*/,
         'resize_keyboard' => true,
