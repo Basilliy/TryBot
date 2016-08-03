@@ -2,7 +2,7 @@
 /**
  * Telegram Bot access token и URL.
  */
-$access_token = '188192901:AAF2mNLz0rCxe0z_HIc_OhamGo_HIilPEQA';
+$access_token = '246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA';
 $url = 'https://api.telegram.org/bot' . $access_token;
 $output = json_decode(file_get_contents('php://input'), true);
 $chat_id = $output['message']['chat']['id'];
@@ -29,7 +29,7 @@ if (checkUser($fp, $output['callback_query']['message']['chat']['id']) != false)
           else{
            AddUserLanguage($output['callback_query']['message']['chat']['id'],$fp,$output['callback_query']['data']);
           }
-file_get_contents("https://api.telegram.org/bot188192901:AAF2mNLz0rCxe0z_HIc_OhamGo_HIilPEQA/sendMessage?chat_id=".$output['callback_query']['message']['chat']['id']."&text=Language successfully changed to: ".($output['callback_query']['data'])."&parse_mode=HTML");//exit();
+file_get_contents("https://api.telegram.org/bot246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA/sendMessage?chat_id=".$output['callback_query']['message']['chat']['id']."&text=Language successfully changed to: ".($output['callback_query']['data'])."&parse_mode=HTML");//exit();
 exit();
             
 }
@@ -97,7 +97,7 @@ function genegateInsult($chat_id,$lang){
     sendMessage($chat_id, $fuck);
 }
 function sendMessage($chat_id, $message) {
-    file_get_contents("https://api.telegram.org/bot188192901:AAF2mNLz0rCxe0z_HIc_OhamGo_HIilPEQA/sendMessage?chat_id=".$chat_id."&text=".$message.printKeybord()."&parse_mode=HTML");
+    file_get_contents("https://api.telegram.org/bot246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA/sendMessage?chat_id=".$chat_id."&text=".$message.printKeybord()."&parse_mode=HTML");
 }
 function checkUser($mass,$chat_id){
     $is = false;
@@ -176,7 +176,7 @@ $keyboard = json_encode($keyboard,true);
     return $reply_markup;
 }
 function sendPhoto($chat_id, $photo){
-    file_get_contents("https://api.telegram.org/bot188192901:AAF2mNLz0rCxe0z_HIc_OhamGo_HIilPEQA/sendphoto?chat_id=".$chat_id."&photo=".$photo);
+    file_get_contents("https://api.telegram.org/bot246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA/sendphoto?chat_id=".$chat_id."&photo=".$photo);
 }
 function forURL(){
     $HTML='<a href="https://evilinsult.com/">http://evilinsult.com/</a>';
