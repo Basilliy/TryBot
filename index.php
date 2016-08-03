@@ -162,16 +162,16 @@ $findme   = ',';
 $button = explode($findme, $rows['ButtonsName']);
 for($i = 0; $i < count($button); $i++){
     echo '<br>';
-    print_r($buttons["$i"]);
+    //print_r($button["$i"]);
     
 }
 // Закрываем соединение
 $link->close();
 
         $reply_markup = '';
-     $buttons = [$button[0]];
+    // $buttons = [$button[0]];
     $keyboard = json_encode($keyboard = [
-        'keyboard' => $buttons /*[$buttons]*/,
+        'keyboard' => $button[0] /*[$buttons]*/,
         'resize_keyboard' => true,
         'one_time_keyboard' => false,
         'parse_mode' => 'HTML',
