@@ -162,7 +162,7 @@ $findme   = ',';
 $button = explode($findme, $rows['ButtonsName']);
 for($i = 0; $i < count($button); $i++){
     echo '<br>';
-   // print_r($buttons["$i"]);
+    print_r($buttons["$i"]);
     
 }
 // Закрываем соединение
