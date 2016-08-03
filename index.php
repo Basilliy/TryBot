@@ -169,7 +169,7 @@ for($i = 0; $i < count($button); $i++){
 $link->close();
 
         $reply_markup = '';
-     $buttons = [$button[0],$button[1],$button[2]];
+     $buttons = [$button];
     $keyboard = json_encode($keyboard = [
         'keyboard' => $buttons /*[$buttons]*/,
         'resize_keyboard' => true,
