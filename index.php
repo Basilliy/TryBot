@@ -169,9 +169,9 @@ for($i = 0; $i < count($button); $i++){
 $link->close();
 
         $reply_markup = '';
-    // $buttons = [$button[0]];
+     $buttons = [$button];
     $keyboard = json_encode($keyboard = [
-        'keyboard' => $button[0] /*[$buttons]*/,
+        'keyboard' => $buttons /*[$buttons]*/,
         'resize_keyboard' => true,
         'one_time_keyboard' => false,
         'parse_mode' => 'HTML',
