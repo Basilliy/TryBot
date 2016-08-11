@@ -8,6 +8,11 @@ $output = json_decode(file_get_contents('php://input'), true);
 $chat_id = $output['message']['chat']['id'];
 $message = $output['message']['text'];
 $fp = json_decode(file_get_contents('user.json'), true);
+
+if(isset($output['inline_query']){
+    file_get_contents("https://api.telegram.org/bot246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA/sendMessage?chat_id=267280685&text=hi"); 
+}
+
 $botanToken = 'ue7xV8Wl5Q2QgHD7yGWfPApy_WBC1Hp8';
 file_get_contents("https://api.botan.io/track?token=".$botanToken."&uid=".$chat_id."&name=search");
 file_get_contents("https://api.botan.io/track?token=".$botanToken."&uid=".$chat_id."&name=search%20californication");
