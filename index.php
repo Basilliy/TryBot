@@ -24,7 +24,7 @@ $fuck = file_get_contents("errors.txt");
     $rus = array( "type" => "article",
                   "id" => "2",
                   "title" => "Generate",
-                  "input_message_content" => array("message_text"=>"$fuck")
+                  "input_message_content" => array("message_text"=>file_get_contents("errors.txt"))
                   );
     $russik = array( "type" => "article",
                   "id" => "1",
