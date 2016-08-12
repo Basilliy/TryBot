@@ -26,7 +26,7 @@ if(isset($output['inline_query'])){
                   "title" => "russik",
                   "input_message_content" => array("message_text"=>"srugak")
                   );
-    $drug = json_encode([$rus,$russik]);
+    $drug = json_encode([$russik]);
     //file_put_contents("errors.txt",$drug);
     file_get_contents("https://api.telegram.org/bot246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA/answerInlineQuery?inline_query_id=".$output['inline_query']['id']."&results=".$drug); 
 }
