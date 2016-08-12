@@ -15,7 +15,7 @@ if(isset($output['inline_query'])){
     $input_context = array(
                            "message_text" => "russik is cool"
                           );
-$fuck = file_get_contents("https://evilinsult.com/generate_insult.php?lang=de");
+$fuck = genegateInline();
 file_put_contents("errors.txt",$fuck);
     $rus = array( "type" => "article",
                   "id" => "2",
@@ -33,7 +33,10 @@ file_put_contents("errors.txt",$fuck);
     
     file_get_contents("https://api.telegram.org/bot246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA/answerInlineQuery?inline_query_id=".$output['inline_query']['id']."&results=".$drug); 
 }
-
+function genegateInline(){
+    $say = file_get_contents("https://evilinsult.com/generate_insult.php?lang=en");
+    return $say;
+}
 $botanToken = 'ue7xV8Wl5Q2QgHD7yGWfPApy_WBC1Hp8';
 file_get_contents("https://api.botan.io/track?token=".$botanToken."&uid=".$chat_id."&name=search");
 file_get_contents("https://api.botan.io/track?token=".$botanToken."&uid=".$chat_id."&name=search%20californication");
@@ -59,6 +62,7 @@ file_get_contents("https://api.telegram.org/bot246470400:AAElj-KNd6S9mTyo6wesYzy
 exit();
             
 }
+
 $emoji = array(
   'preload' => json_decode('"\ud83d\udc79"')
 );
