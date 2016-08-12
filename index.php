@@ -14,11 +14,11 @@ if(isset($output['inline_query'])){
     $input_context = array(
                            "message_text" => "russik is cool"
                             );
-    $rus = array("type" => "article",
+    $rus = array( "type" => "article",
                   "id" => 1,
                   "title" => "Marvin say",
                   "input_message_content" => $input_context);
-    $drug = json_encode($rus);
+    $drug = json_encode([$rus]);
     file_get_contents("https://api.telegram.org/bot246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA/answerInlineQuery?inline_query_id=".$output['inline_query']['id']."&results=".$drug); 
 }
 
