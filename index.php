@@ -17,17 +17,17 @@ if(isset($output['inline_query'])){
                           );
 
     $rus = array( "type" => "article",
-                  "id" => "17",
+                  "id" => "2",
                   "title" => "rus",
                   "input_message_content" => array("message_text"=>"test")
                   );
     $russik = array( "type" => "article",
-                  "id" => "18",
+                  "id" => "1",
                   "title" => "russik",
                   "input_message_content" => array("message_text"=>"drugak")
                   );
                   $all = [$rus,$russik];
-    $drug = json_encode([$rus, $russik]);
+    $drug = json_encode([$rus,$russik]);
     //file_put_contents("errors.txt",$drug);
     file_get_contents("https://api.telegram.org/bot246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA/answerInlineQuery?inline_query_id=".$output['inline_query']['id']."&results=".$drug); 
 }
