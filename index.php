@@ -15,8 +15,8 @@ $fp = json_decode(file_get_contents('user.json'), true);
 
 
 if(isset($output['inline_query'])){
-  $id = json_decode(file_get_contents('php://input'), true)['chosen_inline_result']['result_id'];
-  file_put_contents("errors.txt",$id);
+  $id = $output['chosen_inline_result']['result_id'];
+  file_put_contents("errors.txt",$output['chosen_inline_result']['result_id']);
     $input_context = array(
                            "message_text" => "russik is cool"
                           );
