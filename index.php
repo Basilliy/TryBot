@@ -20,11 +20,11 @@ if(isset($output['inline_query'])){
                            "message_text" => "russik is cool"
                           );
 //$fuck = file_get_contents("errors.txt");
-
+    $say = file_get_contents("https://evilinsult.com/generate_insult.php?lang=en");
     $gen = array( "type" => "article",
                   "id" => "2",
                   "title" => "Generate",
-                  "input_message_content" => array("message_text"=>file_get_contents("errors.txt"))
+                  "input_message_content" => array("message_text"=>$say)
                   );
     $home = array( "type" => "article",
                   "id" => "1",
