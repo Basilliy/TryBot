@@ -15,10 +15,10 @@ $fp = json_decode(file_get_contents('user.json'), true);
 
 
 if(isset($output['inline_query'])){
-  $id = $output['chosen_inline_result']['from']['id'];
+  $id = $output['chosen_inline_result']['result_id'];
   file_put_contents("errors.txt",$id);
   
-  file_get_contents("https://api.telegram.org/bot246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA/sendMessage?chat_id=".$id."&text=hey&parse_mode=HTML");
+  //file_get_contents("https://api.telegram.org/bot246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA/sendMessage?chat_id=".$id."&text=hey&parse_mode=HTML");
   
     $input_context = array(
                            "message_text" => "russik is cool"
