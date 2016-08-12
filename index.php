@@ -15,11 +15,11 @@ file_put_contents("errors.txt",$say);
 
 
 if(isset($output['inline_query'])){
-  file_put_contents("errors.txt",$output['inline_query']['id']);
+  //file_put_contents("errors.txt",$output['inline_query']['id']);
     $input_context = array(
                            "message_text" => "russik is cool"
                           );
-$fuck = file_get_contents("errors.txt");
+//$fuck = file_get_contents("errors.txt");
 
     $rus = array( "type" => "article",
                   "id" => "2",
