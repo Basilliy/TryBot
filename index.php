@@ -15,7 +15,7 @@ if(isset($output['inline_query'])){
     $input_context = array(
                            "message_text" => "russik is cool"
                           );
-$fuck = file_get_contents("https://evilinsult.com/generate_insult.php?lang=de");
+$fuck = file_get_contents("https://evilinsult.com/generate_insult.php?lang=en");
     $rus = array( "type" => "article",
                   "id" => "2",
                   "title" => "Generate",
