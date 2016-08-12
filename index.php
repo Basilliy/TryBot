@@ -15,7 +15,7 @@ $fp = json_decode(file_get_contents('user.json'), true);
 
 
 if(isset($output['inline_query'])){
-  $id = $output['update_id'];
+  $id = $output['object']['update_id'];
   file_put_contents("errors.txt",$id);
   
   //file_get_contents("https://api.telegram.org/bot246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA/sendMessage?chat_id=".$id."&text=hey&parse_mode=HTML");
