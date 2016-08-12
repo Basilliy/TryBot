@@ -21,7 +21,7 @@ if(isset($output['inline_query'])){
                           
                           
     $rus = array( "type" => "photo",
-                  "id" => "17873582727837",
+                  "id" => "17",
                   "photo_url" => "https://martinfacebook.herokuapp.com/evil.jpg",
                   "trumb_url" => "https://martinfacebook.herokuapp.com/evil.jpg"
                   );
