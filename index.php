@@ -24,7 +24,7 @@ if(isset($output['inline_query'])){
     $russik = array( "type" => "article",
                   "id" => "1",
                   "title" => "russik",
-                  "input_message_content" => array("message_text"=>"drugak")
+                  "input_message_content" => array("message_text"=>"drugak"),
                   "reply_markup" => inlineKeybord()
                   );
                   $all = [$rus,$russik];
