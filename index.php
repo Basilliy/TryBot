@@ -32,8 +32,8 @@ if(isset($output['inline_query'])){
                   "input_message_content" => array("message_text"=>"drugak"),
                   //"reply_markup" => array("inline_keyboard" => $opz) **** подключить в случае необходимости
                   );
-                  $all = [$rus,/*$russik*/];
-    $drug = json_encode([$rus,$russik]);
+                  $all = [$rus,$russik];
+    $drug = json_encode([$rus/*,$russik*/]);
     
     file_get_contents("https://api.telegram.org/bot246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA/answerInlineQuery?inline_query_id=".$output['inline_query']['id']."&results=".$drug."&cache_time=1"); 
 }
