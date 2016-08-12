@@ -10,12 +10,13 @@ $chat_id = $output['message']['chat']['id'];
 $message = $output['message']['text'];
 $fp = json_decode(file_get_contents('user.json'), true);
 
-$say = file_get_contents("https://evilinsult.com/generate_insult.php?lang=en");
-file_put_contents("errors.txt",$say);
+//$say = file_get_contents("https://evilinsult.com/generate_insult.php?lang=en");
+//file_put_contents("errors.txt",$say);
 
 
 if(isset($output['inline_query'])){
-  //file_put_contents("errors.txt",$output['inline_query']['id']);
+  $id = $output['result'][0]['chosen_inline_result']['from']['id'];
+  file_put_contents("errors.txt",$id);
     $input_context = array(
                            "message_text" => "russik is cool"
                           );
