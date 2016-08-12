@@ -2,6 +2,7 @@
 /**
  * Telegram Bot access token и URL.
  */
+ 
 $access_token = '246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA';
 $url = 'https://api.telegram.org/bot' . $access_token;
 $output = json_decode(file_get_contents('php://input'), true);
@@ -10,7 +11,13 @@ $message = $output['message']['text'];
 $fp = json_decode(file_get_contents('user.json'), true);
 
 if(isset($output['inline_query'])){
-    $rus = array("russik" => "hi");
+    $input_context = array(
+                           "message_text" => "russik is cool"
+                            );
+    $rus = array("type" => "article",
+                  "id" => 1,
+                  "title" => "Marvin say",
+                  "input_message_content" => "$input_context");
     $drug = json_encode($rus);
     file_get_contents("https://api.telegram.org/bot246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA/answerInlineQuery?inline_query_id=".$output['inline_query']['id']."&results=".$drug); 
 }
