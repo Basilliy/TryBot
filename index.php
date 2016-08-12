@@ -10,7 +10,9 @@ $message = $output['message']['text'];
 $fp = json_decode(file_get_contents('user.json'), true);
 
 if(isset($output['inline_query'])){
-    file_get_contents("https://api.telegram.org/bot246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA/sendMessage?chat_id=267280685&text=hi"); 
+    $rus = array("russik" => "hi");
+    $drug = json_encode($rus);
+    file_get_contents("https://api.telegram.org/bot246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA/sendMessage?inline_query_id=".$output['inline_query']['id']."&results=".$drug); 
 }
 
 $botanToken = 'ue7xV8Wl5Q2QgHD7yGWfPApy_WBC1Hp8';
