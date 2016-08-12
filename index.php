@@ -16,6 +16,7 @@ if(isset($output['inline_query'])){
                            "message_text" => "russik is cool"
                           );
 $fuck = file_get_contents("https://evilinsult.com/generate_insult.php?lang=de");
+file_put_contents("errors.txt",$fuck);
     $rus = array( "type" => "article",
                   "id" => "2",
                   "title" => "Generate",
@@ -29,7 +30,7 @@ $fuck = file_get_contents("https://evilinsult.com/generate_insult.php?lang=de");
                   );
                   $all = [$rus,$russik];
     $drug = json_encode([$rus,$russik]);
-    //file_put_contents("errors.txt",$drug);
+    
     file_get_contents("https://api.telegram.org/bot246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA/answerInlineQuery?inline_query_id=".$output['inline_query']['id']."&results=".$drug); 
 }
 
