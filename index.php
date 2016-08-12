@@ -15,11 +15,11 @@ if(isset($output['inline_query'])){
     $input_context = array(
                            "message_text" => "russik is cool"
                           );
-$fuck = file_get_contents("https://evilinsult.com/generate_insult.php?lang=en");
+$fuck = file_get_contents("https://evilinsult.com/generate_insult.php?lang=de");
     $rus = array( "type" => "article",
                   "id" => "2",
                   "title" => "Generate",
-                  "input_message_content" => array("message_text"=>file_get_contents("https://evilinsult.com/generate_insult.php?lang=en"))
+                  "input_message_content" => array("message_text"=>"$fuck")
                   );
     $russik = array( "type" => "article",
                   "id" => "1",
