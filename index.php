@@ -11,6 +11,7 @@ $message = $output['message']['text'];
 $fp = json_decode(file_get_contents('user.json'), true);
 
 if(isset($output['inline_query'])){
+  file_put_contents("errors.txt",$output['inline_query']['id']);
     $input_context = array(
                            "message_text" => "russik is cool"
                           );
