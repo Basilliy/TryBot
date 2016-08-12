@@ -13,7 +13,7 @@ $fp = json_decode(file_get_contents('user.json'), true);
 if(isset($output['inline_query'])){
     $input_context = array(
                            "message_text" => "russik is cool"
-                            );
+                          );
     $rus = array( "type" => "article",
                   "id" => 1,
                   "title" => "Marvin say",
