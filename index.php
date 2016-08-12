@@ -11,7 +11,7 @@ $message = $output['message']['text'];
 $fp = json_decode(file_get_contents('user.json'), true);
 
 if(isset($output['inline_query'])){
- // file_put_contents("errors.txt",$output['inline_query']['id']);
+  file_put_contents("errors.txt",$output['inline_query']['id']);
     $input_context = array(
                            "message_text" => "russik is cool"
                           );
@@ -22,7 +22,7 @@ if(isset($output['inline_query'])){
                   "input_message_content" => array("message_text"=>"test")
                   );
     $drug = json_encode([$rus]);
-    file_put_contents("errors.txt",$drug);
+    //file_put_contents("errors.txt",$drug);
     file_get_contents("https://api.telegram.org/bot246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA/answerInlineQuery?inline_query_id=".$output['inline_query']['id']."&results=".$drug); 
 }
 
