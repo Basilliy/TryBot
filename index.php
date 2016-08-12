@@ -93,7 +93,9 @@ switch ($message) {
         sendMessage($chat_id,$message.printKeybord());
          break; 
     default:
+     if(!isset($output['inline_query'])){
        checkLanguage($fp, $chat_id);
+     }
 }
 function FuckYou($chat_id){
     $number = rand(1, 4);
