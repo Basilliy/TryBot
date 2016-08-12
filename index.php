@@ -21,19 +21,20 @@ if(isset($output['inline_query'])){
                           );
 //$fuck = file_get_contents("errors.txt");
 
-    $rus = array( "type" => "article",
+    $gen = array( "type" => "article",
                   "id" => "2",
                   "title" => "Generate",
                   "input_message_content" => array("message_text"=>file_get_contents("errors.txt"))
                   );
-    $russik = array( "type" => "article",
+    $home = array( "type" => "article",
                   "id" => "1",
-                  "title" => "russik",
-                  "input_message_content" => array("message_text"=>"drugak"),
+                  "title" => "Home Page",
+                  "input_message_content" => array("message_text"=>'<a href="https://evilinsult.com/">http://evilinsult.com/</a>',
+                                                    "parse_mode" => "HTML"),
                   //"reply_markup" => array("inline_keyboard" => $opz) **** подключить в случае необходимости
                   );
                   $all = [$rus,$russik];
-    $drug = json_encode([$rus/*,$russik*/]);
+    $drug = json_encode([$gen/*,$russik*/]);
     
     file_get_contents("https://api.telegram.org/bot246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA/answerInlineQuery?inline_query_id=".$output['inline_query']['id']."&results=".$drug."&cache_time=1"); 
 }
