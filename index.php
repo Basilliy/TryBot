@@ -16,6 +16,19 @@ if(isset($output['inline_query'])){
                            "message_text" => "russik is cool"
                           );
 
+$x1 = array('text'=>'en','callback_data'=>"en");
+$x2 = array('text'=>'de','callback_data'=>"de");
+$x3 = array('text'=>'ru','callback_data'=>"ru");
+$x4 = array('text'=>'fr','callback_data'=>"fr");
+$x5 = array('text'=>'es','callback_data'=>"es");
+$x6 = array('text'=>'pt','callback_data'=>"pt");
+$x7 = array('text'=>'cn','callback_data'=>"cn");
+$x8 = array('text'=>'sw','callback_data'=>"sw");
+//You should create a new variable $xn(next6 number), and you should describe about it in the field "text" and add "callback_data", 
+//which will return to the server
+///Displays only message
+$opz = [[$x1,$x2,$x3,$x4],[$x5,$x6,$x7,$x8]];
+
     $rus = array( "type" => "article",
                   "id" => "2",
                   "title" => "rus",
@@ -25,7 +38,7 @@ if(isset($output['inline_query'])){
                   "id" => "1",
                   "title" => "russik",
                   "input_message_content" => array("message_text"=>"drugak"),
-                  "reply_markup" => array("text"=>"appart")
+                  "reply_markup" => array("inline_keyboard" => $opz)
                   );
                   $all = [$rus,$russik];
     $drug = json_encode([$rus,$russik]);
