@@ -24,7 +24,7 @@ if(isset($output['inline_query'])){
     $russik = array( "type" => "article",
                   "id" => "17",
                   "title" => "russik",
-                  "input_message_content" => array("message_text"=>"srugak")
+                  "input_message_content" => array("message_text"=>"drugak")
                   );
     $drug = json_encode([$russik]);
     //file_put_contents("errors.txt",$drug);
