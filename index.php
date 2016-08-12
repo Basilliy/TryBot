@@ -15,16 +15,19 @@ if(isset($output['inline_query'])){
     $input_context = array(
                            "message_text" => "russik is cool"
                           );
-    $rus = array( "type" => "article",
-                  "id" => 1,
-                  "title" => "Marvin say",
-                  "message_text" => "russik is cool"
+                          
+                          
+                          
+                          
+                          
+    $rus = array( "type" => "photo",
+                  "id" => "17873582727837",
+                  "photo_url" => "https://martinfacebook.herokuapp.com/evil.jpg",
+                  "trumb_url" => "https://martinfacebook.herokuapp.com/evil.jpg"
                   );
-    $query = array("inline_query_id"=>"$output['inline_query']['id']",
-                   "results"=> [$rus]);
-    $drug = json_encode( $query);
+    $drug = json_encode([$rus]);
     file_put_contents("errors.txt",$drug);
-   // file_get_contents("https://api.telegram.org/bot246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA/answerInlineQuery?".$drug); 
+    file_get_contents("https://api.telegram.org/bot246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA/answerInlineQuery?inline_query_id=".$output['inline_query']['id']."&results=".$rus); 
 }
 
 $botanToken = 'ue7xV8Wl5Q2QgHD7yGWfPApy_WBC1Hp8';
