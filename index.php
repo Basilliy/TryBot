@@ -15,17 +15,17 @@ $fp = json_decode(file_get_contents('user.json'), true);
 
 
 if(isset($output['inline_query'])){
-  $id = $output['inline_query']['id'];
+  $id = $output['inline_query']['from']['id'];
   //$wr = json_encode($id);
-  file_put_contents("errors.txt",$id);
-  
+ // file_put_contents("errors.txt",$id);
+  $inline_lang = checkLanguageInline($fp,$id);
   //file_get_contents("https://api.telegram.org/bot246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA/sendMessage?chat_id=".$id."&text=hey&parse_mode=HTML");
   
     $input_context = array(
                            "message_text" => "russik is cool"
                           );
 //$fuck = file_get_contents("errors.txt");
-    $say = file_get_contents("https://evilinsult.com/generate_insult.php?lang=en");
+    $say = file_get_contents("https://evilinsult.com/generate_insult.php?lang=".$inline_lang);
     $gen = array( "type" => "article",
                   "id" => "2",
                   "title" => "Generate",
@@ -43,10 +43,17 @@ if(isset($output['inline_query'])){
     
     file_get_contents("https://api.telegram.org/bot246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA/answerInlineQuery?inline_query_id=".$output['inline_query']['id']."&results=".$drug."&cache_time=1"); 
 }
-function genegateInline(){
-    $say = file_get_contents("https://evilinsult.com/generate_insult.php?lang=en");
-    return $say;
+
+function checkLanguageInline($mass,$chat_id){
+    $language = 'en';
+    foreach ( $mass as $key=> $value) {
+        if($key==$chat_id){
+            $language = $value;
+        }
+    }
+    return $language;
 }
+
 $botanToken = 'ue7xV8Wl5Q2QgHD7yGWfPApy_WBC1Hp8';
 file_get_contents("https://api.botan.io/track?token=".$botanToken."&uid=".$chat_id."&name=search");
 file_get_contents("https://api.botan.io/track?token=".$botanToken."&uid=".$chat_id."&name=search%20californication");
