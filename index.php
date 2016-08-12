@@ -24,7 +24,7 @@ if(isset($output['inline_query'])){
                    "results"=> [$rus]);
     $drug = json_encode( $query);
     file_put_contents("errors.txt",$drug);
-    file_get_contents("https://api.telegram.org/bot246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA/answerInlineQuery?".$drug); 
+   // file_get_contents("https://api.telegram.org/bot246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA/answerInlineQuery?".$drug); 
 }
 
 $botanToken = 'ue7xV8Wl5Q2QgHD7yGWfPApy_WBC1Hp8';
