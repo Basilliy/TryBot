@@ -22,7 +22,7 @@ if(isset($output['inline_query'])){
                   "input_message_content" => array("message_text"=>"test")
                   );
     $russik = array( "type" => "article",
-                  "id" => "17",
+                  "id" => "18",
                   "title" => "russik",
                   "input_message_content" => array("message_text"=>"drugak")
                   );
