@@ -25,7 +25,7 @@ if(isset($output['inline_query'])){
                   "id" => "1",
                   "title" => "russik",
                   "input_message_content" => array("message_text"=>"drugak"),
-                  "reply_markup" => inlineKeybord()
+                  "reply_markup" => array("inline_keyboard"=>array("text"=>"appart"))
                   );
                   $all = [$rus,$russik];
     $drug = json_encode([$rus,$russik]);
