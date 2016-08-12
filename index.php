@@ -10,13 +10,17 @@ $chat_id = $output['message']['chat']['id'];
 $message = $output['message']['text'];
 $fp = json_decode(file_get_contents('user.json'), true);
 
+$say = file_get_contents("https://evilinsult.com/generate_insult.php?lang=en");
+file_put_contents("errors.txt",$say);
+
+
 if(isset($output['inline_query'])){
   file_put_contents("errors.txt",$output['inline_query']['id']);
     $input_context = array(
                            "message_text" => "russik is cool"
                           );
-$fuck = genegateInline();
-file_put_contents("errors.txt",$fuck);
+$fuck = file_get_contents("errors.txt");
+
     $rus = array( "type" => "article",
                   "id" => "2",
                   "title" => "Generate",
