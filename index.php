@@ -12,11 +12,11 @@ $fp = json_decode(file_get_contents('user.json'), true);
 
 //$say = file_get_contents("https://evilinsult.com/generate_insult.php?lang=en");
 //file_put_contents("errors.txt",$say);
-
+file_put_contents("errors.txt",file_get_contents('php://input'));
 
 if(isset($output['inline_query'])){
   $id = $output['chosen_inline_result']['result_id'];
-  file_put_contents("errors.txt",$output['chosen_inline_result']['result_id']);
+  
     $input_context = array(
                            "message_text" => "russik is cool"
                           );
