@@ -29,7 +29,7 @@ if(isset($output['inline_query'])){
     $home = array( "type" => "article",
                   "id" => "1",
                   "title" => "Home Page",
-                  "input_message_content" => array("message_text"=>'<a href="https://evilinsult.com/">http://evilinsult.com/</a>',
+                  "input_message_content" => array("message_text"=>'<a href="https://evilinsult.com/">Visit our web site</a>',
                                                     "parse_mode" => "HTML"),
                   //"reply_markup" => array("inline_keyboard" => $opz) **** подключить в случае необходимости
                   );
