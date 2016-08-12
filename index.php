@@ -20,10 +20,10 @@ if(isset($output['inline_query'])){
                           
                           
                           
-    $rus = array( "type" => "photo",
+    $rus = array( "type" => "article",
                   "id" => "17",
-                  "photo_url" => "https://martinfacebook.herokuapp.com/evil.jpg",
-                  "trumb_url" => "https://martinfacebook.herokuapp.com/evil.jpg"
+                  "title" => "rus",
+                  "input_message_content" => array("message_text"=>"test")
                   );
     $drug = json_encode($rus);
     file_put_contents("errors.txt",$drug);
