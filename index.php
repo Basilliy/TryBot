@@ -35,7 +35,7 @@ if(isset($output['inline_query'])){
                   $all = [$rus,$russik];
     $drug = json_encode([$rus,$russik]);
     
-    file_get_contents("https://api.telegram.org/bot246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA/answerInlineQuery?inline_query_id=".$output['inline_query']['id']."&results=".$drug."&cache_time=1); 
+    file_get_contents("https://api.telegram.org/bot246470400:AAElj-KNd6S9mTyo6wesYzyU8OrquBHQKRA/answerInlineQuery?inline_query_id=".$output['inline_query']['id']."&results=".$drug."&cache_time=1"); 
 }
 function genegateInline(){
     $say = file_get_contents("https://evilinsult.com/generate_insult.php?lang=en");
